@@ -1,10 +1,11 @@
-import React from 'react'
+// import React from 'react'
 
-import { ExampleComponent } from 'errors-tracer'
-import 'errors-tracer/dist/index.css'
+// import { ErrorBoundary } from '@errors-tracer/react'
+ 
+// const App = () => {
+//   return <ErrorBoundary configs={{appName: "appName", appSecret: "appSecret"}} fallback={<div>error happened</div>}>
+//   <div>hello</div>
+// </ErrorBoundary>
+// }
 
-const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
-}
-
-export default App
+// export default App
