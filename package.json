@@ -1,8 +1,8 @@
 {
-  "name": "@errorstracer/react",
+  "name": "@errors-tracer/react",
   "version": "1.0.0",
   "description": "Made with create-react-library",
-  "author": "alsiddigahmed",
+  "author": "Alsiddigahmed",
   "license": "MIT",
   "repository": "errorstracer/react",
   "main": "dist/index.js",

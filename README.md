@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save errors-tracer
+npm install --save @errors-tracer/react
 ```
 
 ## Usage
