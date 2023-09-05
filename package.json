@@ -1,5 +1,5 @@
 {
-  "name": "@errors-tracer/react",
+  "name": "react-boundary",
   "version": "1.0.0",
   "description": "Made with create-react-library",
   "author": "Alsiddigahmed",
@@ -12,7 +12,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "build": "microbundle-crl --compress --no-sourcemap --format cjs",
     "start": "microbundle-crl --watch --compress  --no-sourcemap --format  cjs",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
