@@ -25,14 +25,14 @@ First you need to create an account at [https://errorstracer.com](errorstracer.c
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import { useEffect } from 'react'
 import { ErrorBoundary, initialize } from '@errors-tracer/react'
 
 function Example() {
   useEffect(() => {
     initialize({
-      appKey: 'application key',
-      appSecret: 'application secret'
+      appKey: 'your_app_key',
+      appSecret: 'your_app_secret'
     })
   }, [])
 
