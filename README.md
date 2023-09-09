@@ -1,6 +1,6 @@
 # Error Boundary For React
 
-[![NPM](https://img.shields.io/npm/v/errors-tracer.svg)](https://www.npmjs.com/package/@errors-tracer/react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@errors-tracer/react.svg)](https://www.npmjs.com/package/@errors-tracer/react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ### About
 
