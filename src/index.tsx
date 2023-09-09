@@ -9,8 +9,8 @@ import {
 } from 'react-device-detect'
 
 interface Props {
-  fallback: React.ReactNode
-  children: React.ReactNode
+  fallback: any
+  children: any
   configs: {
     appName: string
     appSecret: string
@@ -63,7 +63,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
     this.setState({ error, errorInfo })
   }
 
-  render() {
+  render(): any {
     if (this.state?.hasError) {
       return this.props.fallback
     }
