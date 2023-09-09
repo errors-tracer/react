@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-import { ErrorBoundary } from '@errors-tracer/react'
+import { ErrorBoundary, initialize } from '@errors-tracer/react'
+import { Page } from './page'
 
 const App = () => {
 
-  const x: any = null
+  useEffect(() => {
+    initialize({
+      appKey: 'your_app_key',
+      appSecret: 'your_app_secret'
+    })
+  }, [])
+
   return <ErrorBoundary 
-    fallback={<div>some error happened</div>} 
-    configs={{ appName: "something", appSecret: "something" }}>
-      <div> {x.t} hello world</div>
+    fallback={<div>some error happened</div>}>
+      <Page />
   </ErrorBoundary>
 }
 

@@ -1342,7 +1342,7 @@
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
 "@errors-tracer/react@file:..":
-  version "1.0.6"
+  version "1.0.2"
   dependencies:
     react-device-detect "^2.2.3"
     webpack "4.42.0"

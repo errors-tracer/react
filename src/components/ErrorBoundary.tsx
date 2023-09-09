@@ -1,20 +1,10 @@
 import * as React from 'react'
 
-import {
-  isIE,
-  isChrome,
-  isEdge,
-  isSafari,
-  isFirefox
-} from 'react-device-detect'
+import * as Devices from 'react-device-detect'
 
 interface Props {
   fallback: any
   children: any
-  configs: {
-    appName: string
-    appSecret: string
-  }
 }
 
 interface State {
@@ -32,17 +22,19 @@ export class ErrorBoundary extends React.Component<Props, State> {
   static getDerivedStateFromError() {
     // Update state so the next render will show the fallback UI.
 
+    console.log('error occur')
+
     return { hasError: true }
   }
 
   async componentDidCatch(error: any, errorInfo: any) {
     let agent = 'Unknown'
 
-    if (isChrome) agent = 'Chrome'
-    if (isIE) agent = 'IE'
-    if (isEdge) agent = 'Edge'
-    if (isSafari) agent = 'Safari'
-    if (isFirefox) agent = 'Firefox'
+    if (Devices?.isChrome) agent = 'Chrome'
+    if (Devices?.isIE) agent = 'IE'
+    if (Devices?.isEdge) agent = 'Edge'
+    if (Devices?.isSafari) agent = 'Safari'
+    if (Devices?.isFirefox) agent = 'Firefox'
 
     await fetch(`http://api.errorstracer.com/v0.1/trace/react`, {
       method: 'POST',
@@ -50,7 +42,9 @@ export class ErrorBoundary extends React.Component<Props, State> {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        credentials: this.props.configs,
+        credentials: {
+          token: localStorage.getItem('ERRORS_TRACER_TOKEN')
+        },
         data: {
           error: error.message,
           stack: error.stack,
