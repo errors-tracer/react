@@ -20,21 +20,21 @@ export class ErrorBoundary extends React.Component<Props, State> {
   }
 
   static getDerivedStateFromError() {
-    // Update state so the next render will show the fallback UI.
-
-    console.log('error occur')
-
     return { hasError: true }
   }
 
   async componentDidCatch(error: any, errorInfo: any) {
     let agent = 'Unknown'
 
+    const token = localStorage.getItem('ERRORS_TRACER_TOKEN')
+
     if (Devices?.isChrome) agent = 'Chrome'
     if (Devices?.isIE) agent = 'IE'
     if (Devices?.isEdge) agent = 'Edge'
     if (Devices?.isSafari) agent = 'Safari'
     if (Devices?.isFirefox) agent = 'Firefox'
+
+    if (!token) return
 
     await fetch(`http://api.errorstracer.com/v0.1/trace/react`, {
       method: 'POST',
@@ -43,7 +43,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
       },
       body: JSON.stringify({
         credentials: {
-          token: localStorage.getItem('ERRORS_TRACER_TOKEN')
+          token
         },
         data: {
           error: error.message,
