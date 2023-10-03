@@ -2,19 +2,27 @@
   "name": "@errors-tracer/react",
   "version": "1.0.4",
   "description": "A React Library For Handling All Errors And Report In A Registry Website",
-  "author": "AlsiddigAhmed",
+  "author": "ElsiddigAhmed",
   "license": "MIT",
-  "repository": "ElsiddigAhmed/react-easy-notify",
+  "repository": "errors-tracer/react",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "source": "src/index.tsx",
   "keywords": [
-    "react"
+    "react",
+    "react errors",
+    "react errors boundary",
+    "errors",
+    "error boundary",
+    "boundary",
+    "errors tracer",
+    "track",
+    "trace"
   ],
   "engines": {
     "node": ">=10"
   },
-  "homepage": "https://github.com/errors-tracer/react#readme",
+  "homepage": "https://errorstracer.com",
   "size-limit": [
     {
       "path": "dist/**",
