@@ -5,6 +5,10 @@ import * as Devices from 'react-device-detect'
 interface Props {
   fallback: any
   children: any
+  credentials?: {
+    orgKey: string
+    appKey: string
+  }
 }
 
 interface State {
@@ -24,9 +28,9 @@ export class ErrorBoundary extends React.Component<Props, State> {
   }
 
   async componentDidCatch(error: any, errorInfo: any) {
-    let agent = 'Unknown'
+    this.setState({ error, errorInfo })
 
-    const token = localStorage.getItem('ERRORS_TRACER_TOKEN')
+    let agent = 'Unknown'
 
     if (Devices?.isChrome) agent = 'Chrome'
     if (Devices?.isIE) agent = 'IE'
@@ -34,27 +38,25 @@ export class ErrorBoundary extends React.Component<Props, State> {
     if (Devices?.isSafari) agent = 'Safari'
     if (Devices?.isFirefox) agent = 'Firefox'
 
-    if (!token) return
+    if (!this.props.credentials) return
 
-    await fetch(`http://api.errorstracer.com/v0.1/trace/react`, {
+    await fetch(`https://api.errorstracer.com/v0.1/registry/react`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        credentials: {
-          token
-        },
-        data: {
+        credentials: this.props.credentials,
+        error: {
           error: error.message,
           stack: error.stack,
           platform: 'Unknown',
-          agent
+          agent,
+          host: typeof window != 'undefined' && window.location.host,
+          href: typeof window != 'undefined' && window.location.href
         }
       })
     })
-
-    this.setState({ error, errorInfo })
   }
 
   render(): any {
