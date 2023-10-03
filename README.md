@@ -33,7 +33,7 @@ The credentials object includes two values and you can get them from the platfor
 }
 ```
 
-\*It's optional to pass the credentials object depends on which you want to use the library as an error boundary or a remote error logger.
+It's optional to pass the credentials object depends on which you want to use the library as an error boundary or a remote error logger.
 
 ### Example
 
