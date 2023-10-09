@@ -8,13 +8,19 @@ A library for logging errors remotely in an error logger platform. To get starte
 
 ### Installation
 
-`npm install --save @errors-tracer/react`
+```bash
+npm install --save @errors-tracer/react
+```
+
 or
-`yarn add @errors-tracer/react`
+
+```bash
+yarn add @errors-tracer/react
+```
 
 ## Usage
 
-You can use the error boundary for each development and production environments to seperatly monitor your apps.
+You can use the error boundary for each development and production environments to separately monitor your apps.
 
 To get started you need to create an application under your organization and activate it, then go to credentials tab and copy `appKey` and `orgKey` and make sure which environment you are using.
 
@@ -35,6 +41,18 @@ The credentials object includes two values and you can get them from the platfor
 
 It's optional to pass the credentials object depends on which you want to use the library as an error boundary or a remote error logger.
 
+### Additional Data
+
+You can send an additional data object as well, this option will provide you with a better debugging capability and you might get benefits of it for example you can send the username or email to know exactly the user who had the issue.
+
+You can pass anything as an object such as email, phone number, user's first and last names.
+
+```jsx
+const additionalData = {
+  email: 'customer@email.com'
+}
+```
+
 ### Example
 
 #### Normal React Apps:
@@ -49,8 +67,10 @@ const credentials = {
   appKey: YOUR_APPLICATION_KEY
 }
 
+// you can pass the additionalData prop to the ErrorBoundary
+
 ReactDOM.render(
-  <ErrorBoundary credentials={credentials} fallback={<FallbackComponent />}>
+  <ErrorBoundary additionalData={/*pass your object*/} credentials={credentials} fallback={<FallbackComponent />}>
     <App />
   </ErrorBoundary>,
   document.getElementById('root')

@@ -9,6 +9,7 @@ interface Props {
     orgKey: string
     appKey: string
   }
+  additionalData?: any
 }
 
 interface State {
@@ -53,7 +54,10 @@ export class ErrorBoundary extends React.Component<Props, State> {
           platform: 'Unknown',
           agent,
           host: typeof window != 'undefined' && window.location.host,
-          href: typeof window != 'undefined' && window.location.href
+          href: typeof window != 'undefined' && window.location.href,
+          additionalData: this.props.additionalData
+            ? JSON.parse(this.props?.additionalData)
+            : null
         }
       })
     })
